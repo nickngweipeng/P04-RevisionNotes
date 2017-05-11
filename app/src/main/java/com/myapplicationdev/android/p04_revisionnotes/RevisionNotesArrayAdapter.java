@@ -17,7 +17,6 @@ public class RevisionNotesArrayAdapter extends ArrayAdapter<Note> {
 	ArrayList<Note> notes;
 	int resource;
 	ImageView iv1, iv2, iv3, iv4, iv5;
-	TextView tvNotes;
 
 	public RevisionNotesArrayAdapter(Context context, int resource, ArrayList<Note> notes) {
 		super(context, resource, notes);
@@ -33,7 +32,7 @@ public class RevisionNotesArrayAdapter extends ArrayAdapter<Note> {
 
 		View rowView = inflater.inflate(resource, parent, false);
 
-		tvNotes = (TextView)rowView.findViewById(R.id.textViewNotes);
+		TextView tvNotes = (TextView)rowView.findViewById(R.id.textViewNotes);
 		iv1 = (ImageView)rowView.findViewById(R.id.imageView1star);
 		iv2 = (ImageView)rowView.findViewById(R.id.imageView2star);
 		iv3 = (ImageView)rowView.findViewById(R.id.imageView3star);

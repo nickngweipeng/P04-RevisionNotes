@@ -17,13 +17,16 @@ public class SecondActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_second);
+
 		lv = (ListView)findViewById(R.id.lv);
+
 		DBHelper db = new DBHelper(SecondActivity.this);
 		note = db.getAllNotes();
+
 		aa = new RevisionNotesArrayAdapter(this, R.layout.row, note);
 		lv.setAdapter(aa);
 		aa.notifyDataSetChanged();
-		db.close();
+        db.close();
 	}
 
 

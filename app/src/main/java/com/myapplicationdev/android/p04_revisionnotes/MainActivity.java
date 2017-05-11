@@ -13,7 +13,6 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     Button btnInsert, btnShow;
-    RadioGroup rg;
     EditText etNote;
 
     @Override
@@ -24,16 +23,16 @@ public class MainActivity extends AppCompatActivity {
         btnInsert = (Button)findViewById(R.id.buttonInsertNote);
         btnShow = (Button)findViewById(R.id.buttonShowList);
         etNote = (EditText)findViewById(R.id.editTextNote);
-        rg = (RadioGroup)findViewById(R.id.radioGroupStars);
+        RadioGroup rg = (RadioGroup)findViewById(R.id.radioGroupStars);
         int selectedButtonNum = rg.getCheckedRadioButtonId();
         final RadioButton rb = (RadioButton)findViewById(selectedButtonNum);
 
         btnInsert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int selectedRb = Integer.parseInt(rb.getText().toString());
                 DBHelper db = new DBHelper(MainActivity.this);
                 String content = etNote.getText().toString();
+                int selectedRb = Integer.parseInt(rb.getText().toString());
                 db.insertNote(content, selectedRb);
                 db.close();
                 Toast.makeText(MainActivity.this, "Added Successfully", Toast.LENGTH_SHORT).show();
